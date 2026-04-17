@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 
 const projects = [
   {
+    num: "01",
     title: "한반도아트 창단 공연",
     year: "2024",
     category: "공연",
@@ -11,6 +12,7 @@ const projects = [
     tags: ["국악", "앙상블", "창작"],
   },
   {
+    num: "02",
     title: "국악 창작곡 프로젝트",
     year: "2024",
     category: "창작",
@@ -18,6 +20,7 @@ const projects = [
     tags: ["작곡", "편곡", "전통악기"],
   },
   {
+    num: "03",
     title: "문화 기획 프로그램",
     year: "2023",
     category: "기획",
@@ -47,37 +50,73 @@ export default function ProjectsSection() {
     <section
       id="projects"
       ref={ref}
-      className="section-hidden py-24 md:py-36 px-6"
+      className="section-hidden py-[clamp(5rem,12vw,10rem)] px-[clamp(1.5rem,5vw,5rem)]"
     >
-      <div className="mx-auto max-w-5xl">
-        <p className="text-xs tracking-[0.3em] text-[var(--accent)] mb-4 uppercase">Projects</p>
-        <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold mb-16 text-[var(--foreground)]">
+      <div className="mx-auto max-w-[1280px]">
+        <p
+          className="text-xs tracking-[0.2em] text-[var(--cobalt)] mb-4 uppercase"
+          style={{ fontFamily: "var(--font-sans)" }}
+        >
+          04 — Projects
+        </p>
+        <h2
+          className="font-display text-[clamp(2.5rem,5vw,4rem)] uppercase leading-none text-[var(--charcoal)] mb-16"
+          style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
+        >
           주요 작품 · 활동
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="space-y-px bg-[var(--charcoal)]/10">
           {projects.map((project) => (
             <article
               key={project.title}
-              className="group p-8 rounded-2xl border border-[var(--foreground)]/8 hover:border-[var(--accent)]/40 hover:shadow-lg transition-all duration-300 cursor-default"
+              className="group grid md:grid-cols-[80px_1fr_auto] gap-8 p-8 bg-[var(--cream)] hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--cobalt)] transition-all duration-150 cursor-default"
             >
-              <div className="flex items-center justify-between mb-6">
-                <span className="text-xs tracking-widest text-[var(--accent)] uppercase">
-                  {project.category}
+              <div>
+                <span
+                  className="text-xs tracking-[0.15em] text-[var(--cobalt)]"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  {project.num}
                 </span>
-                <span className="text-xs text-[var(--muted)]">{project.year}</span>
               </div>
-              <h3 className="font-[family-name:var(--font-serif)] text-xl font-bold text-[var(--foreground)] mb-3 group-hover:text-[var(--accent)] transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-sm text-[var(--muted)] leading-relaxed mb-6">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
+
+              <div>
+                <div className="flex items-center gap-4 mb-3">
+                  <span
+                    className="text-xs tracking-[0.15em] text-[var(--red)] uppercase"
+                    style={{ fontFamily: "var(--font-sans)" }}
+                  >
+                    {project.category}
+                  </span>
+                  <span className="w-4 h-px bg-[var(--charcoal)]/20" />
+                  <span
+                    className="text-xs text-[var(--muted)]"
+                    style={{ fontFamily: "var(--font-sans)" }}
+                  >
+                    {project.year}
+                  </span>
+                </div>
+                <h3
+                  className="text-xl font-bold text-[var(--charcoal)] mb-3 group-hover:text-[var(--cobalt)] transition-colors"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
+                  {project.title}
+                </h3>
+                <p
+                  className="text-sm text-[var(--muted)] leading-relaxed"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  {project.description}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-2 md:justify-end content-start">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs px-3 py-1 rounded-full bg-[var(--accent)]/10 text-[var(--accent)]"
+                    className="text-xs px-3 py-1 border border-[var(--charcoal)]/15 text-[var(--muted)] uppercase tracking-wider"
+                    style={{ fontFamily: "var(--font-sans)" }}
                   >
                     {tag}
                   </span>

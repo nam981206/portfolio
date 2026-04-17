@@ -23,16 +23,28 @@ export default function AboutSection() {
     <section
       id="about"
       ref={ref}
-      className="section-hidden py-24 md:py-36 px-6"
+      className="section-hidden py-[clamp(5rem,12vw,10rem)] px-[clamp(1.5rem,5vw,5rem)]"
     >
-      <div className="mx-auto max-w-5xl">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      <div className="mx-auto max-w-[1280px]">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          {/* Left */}
           <div>
-            <p className="text-xs tracking-[0.3em] text-[var(--accent)] mb-4 uppercase">About</p>
-            <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold mb-8 text-[var(--foreground)]">
+            <p
+              className="text-xs tracking-[0.2em] text-[var(--cobalt)] mb-4 uppercase"
+              style={{ fontFamily: "var(--font-sans)" }}
+            >
+              02 — About
+            </p>
+            <h2
+              className="font-display text-[clamp(2.5rem,5vw,4rem)] uppercase leading-none text-[var(--charcoal)] mb-10"
+              style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
+            >
               소개
             </h2>
-            <div className="space-y-4 text-[var(--muted)] leading-relaxed">
+            <div
+              className="space-y-5 text-[var(--muted)] leading-relaxed text-base"
+              style={{ fontFamily: "var(--font-sans)" }}
+            >
               <p>
                 한반도아트 대표 남경우는 국악창작 분야에서 전통과 현대를 잇는 작업을 이어가고 있습니다.
               </p>
@@ -47,7 +59,8 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          {/* Right — info cards */}
+          <div className="grid grid-cols-2 gap-px bg-[var(--charcoal)]/10">
             {[
               { label: "소속", value: "한반도아트" },
               { label: "역할", value: "대표" },
@@ -56,12 +69,20 @@ export default function AboutSection() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="p-6 rounded-2xl border border-[var(--foreground)]/8 bg-[var(--foreground)]/3"
+                className="p-8 bg-[var(--cream)] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform duration-150"
               >
-                <p className="text-xs tracking-widest text-[var(--accent)] mb-2 uppercase">
+                <p
+                  className="text-xs tracking-[0.15em] text-[var(--cobalt)] mb-3 uppercase"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
                   {item.label}
                 </p>
-                <p className="font-medium text-[var(--foreground)]">{item.value}</p>
+                <p
+                  className="font-medium text-[var(--charcoal)] text-lg"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
+                  {item.value}
+                </p>
               </div>
             ))}
           </div>

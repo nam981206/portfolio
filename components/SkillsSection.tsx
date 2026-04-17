@@ -4,18 +4,22 @@ import { useEffect, useRef } from "react";
 
 const areas = [
   {
+    num: "01",
     category: "창작",
     items: ["국악 작곡", "편곡", "사운드 디자인", "음악 기획"],
   },
   {
+    num: "02",
     category: "공연",
     items: ["공연 연출", "무대 기획", "앙상블 지휘", "퍼포먼스"],
   },
   {
+    num: "03",
     category: "전통 악기",
     items: ["가야금", "거문고", "해금", "대금"],
   },
   {
+    num: "04",
     category: "경영 · 기획",
     items: ["예술 단체 운영", "프로젝트 매니지먼트", "문화 콘텐츠 기획", "협업 조율"],
   },
@@ -42,27 +46,51 @@ export default function SkillsSection() {
     <section
       id="skills"
       ref={ref}
-      className="section-hidden py-24 md:py-36 px-6 bg-[var(--foreground)]/3"
+      className="section-hidden py-[clamp(5rem,12vw,10rem)] px-[clamp(1.5rem,5vw,5rem)] bg-[var(--navy)]"
     >
-      <div className="mx-auto max-w-5xl">
-        <p className="text-xs tracking-[0.3em] text-[var(--accent)] mb-4 uppercase">Skills & Areas</p>
-        <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold mb-16 text-[var(--foreground)]">
-          활동 분야
-        </h2>
+      <div className="mx-auto max-w-[1280px]">
+        {/* Header — right aligned */}
+        <div className="text-right mb-16">
+          <p
+            className="text-xs tracking-[0.2em] text-[var(--red)] mb-4 uppercase"
+            style={{ fontFamily: "var(--font-sans)" }}
+          >
+            03 — Skills & Areas
+          </p>
+          <h2
+            className="font-display text-[clamp(2.5rem,5vw,4rem)] uppercase leading-none text-[var(--cream)]"
+            style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
+          >
+            활동 분야
+          </h2>
+        </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--cobalt)]/20">
           {areas.map((area) => (
             <div
               key={area.category}
-              className="p-6 rounded-2xl bg-[var(--background)] border border-[var(--foreground)]/8 hover:border-[var(--accent)]/40 transition-colors"
+              className="p-8 bg-[var(--navy)] border-t-2 border-[var(--cobalt)] hover:bg-[var(--cobalt)]/10 transition-colors duration-200"
             >
-              <h3 className="font-[family-name:var(--font-serif)] text-lg font-bold text-[var(--accent)] mb-4">
+              <p
+                className="text-xs tracking-[0.15em] text-[var(--cobalt)] mb-4"
+                style={{ fontFamily: "var(--font-sans)" }}
+              >
+                {area.num}
+              </p>
+              <h3
+                className="font-display text-2xl uppercase text-[var(--cream)] mb-6"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 {area.category}
               </h3>
               <ul className="space-y-2">
                 {area.items.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-[var(--muted)]">
-                    <span className="w-1 h-1 rounded-full bg-[var(--accent)] flex-shrink-0" />
+                  <li
+                    key={item}
+                    className="flex items-center gap-3 text-sm text-[var(--cream)]/50"
+                    style={{ fontFamily: "var(--font-sans)" }}
+                  >
+                    <span className="w-4 h-px bg-[var(--cobalt)] flex-shrink-0" />
                     {item}
                   </li>
                 ))}

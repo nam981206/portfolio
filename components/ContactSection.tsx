@@ -23,45 +23,73 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={ref}
-      className="section-hidden py-24 md:py-36 px-6"
+      className="section-hidden py-[clamp(5rem,12vw,10rem)] px-[clamp(1.5rem,5vw,5rem)] relative overflow-hidden"
     >
-      <div className="mx-auto max-w-5xl">
-        <div className="max-w-2xl">
-          <p className="text-xs tracking-[0.3em] text-[var(--accent)] mb-4 uppercase">Contact</p>
-          <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold mb-6 text-[var(--foreground)]">
-            연락처
-          </h2>
-          <p className="text-[var(--muted)] leading-relaxed mb-12">
-            공연 협업, 창작 의뢰, 기타 문의 사항은 아래로 연락 주세요.
-          </p>
+      {/* Decorative block */}
+      <div className="absolute top-0 right-0 w-48 h-2 bg-[var(--red)]" />
+      <div className="absolute bottom-0 left-0 w-2 h-48 bg-[var(--cobalt)]" />
 
-          <div className="space-y-4">
+      <div className="mx-auto max-w-[1280px]">
+        <div className="grid md:grid-cols-2 gap-16 items-end">
+          <div>
+            <p
+              className="text-xs tracking-[0.2em] text-[var(--cobalt)] mb-4 uppercase"
+              style={{ fontFamily: "var(--font-sans)" }}
+            >
+              06 — Contact
+            </p>
+            <h2
+              className="font-display text-[clamp(2.5rem,5vw,4rem)] uppercase leading-none text-[var(--charcoal)] mb-6"
+              style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
+            >
+              연락처
+            </h2>
+            <p
+              className="text-[var(--muted)] leading-relaxed mb-0"
+              style={{ fontFamily: "var(--font-sans)" }}
+            >
+              공연 협업, 창작 의뢰, 기타 문의 사항은 아래로 연락 주세요.
+            </p>
+          </div>
+
+          <div className="space-y-px bg-[var(--charcoal)]/10">
             <a
               href="mailto:gcnamkw@gmail.com"
-              className="flex items-center gap-4 p-6 rounded-2xl border border-[var(--foreground)]/8 hover:border-[var(--accent)]/40 transition-colors group"
+              className="flex items-center justify-between p-8 bg-[var(--cream)] border-l-2 border-[var(--cobalt)] hover:border-[var(--red)] hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--cobalt)] transition-all duration-150 group"
             >
-              <div className="w-10 h-10 rounded-full bg-[var(--accent)]/10 flex items-center justify-center shrink-0">
-                <svg className="w-5 h-5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                </svg>
-              </div>
               <div>
-                <p className="text-xs tracking-widest text-[var(--muted)] uppercase mb-1">이메일</p>
-                <p className="font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors">
+                <p
+                  className="text-xs tracking-[0.15em] text-[var(--muted)] uppercase mb-2"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  이메일
+                </p>
+                <p
+                  className="font-medium text-[var(--charcoal)] group-hover:text-[var(--cobalt)] transition-colors"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
                   gcnamkw@gmail.com
                 </p>
               </div>
+              <svg className="w-5 h-5 text-[var(--cobalt)] opacity-40 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </a>
 
-            <div className="flex items-center gap-4 p-6 rounded-2xl border border-[var(--foreground)]/8">
-              <div className="w-10 h-10 rounded-full bg-[var(--accent)]/10 flex items-center justify-center shrink-0">
-                <svg className="w-5 h-5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
-                </svg>
-              </div>
+            <div className="flex items-center justify-between p-8 bg-[var(--cream)] border-l-2 border-transparent">
               <div>
-                <p className="text-xs tracking-widest text-[var(--muted)] uppercase mb-1">소속</p>
-                <p className="font-medium text-[var(--foreground)]">한반도아트</p>
+                <p
+                  className="text-xs tracking-[0.15em] text-[var(--muted)] uppercase mb-2"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  소속
+                </p>
+                <p
+                  className="font-medium text-[var(--charcoal)]"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
+                  한반도아트
+                </p>
               </div>
             </div>
           </div>

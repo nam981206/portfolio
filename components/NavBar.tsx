@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 
 const navItems = [
-  { label: "소개", href: "#about" },
-  { label: "활동", href: "#skills" },
-  { label: "작품", href: "#projects" },
-  { label: "경력", href: "#experience" },
-  { label: "연락처", href: "#contact" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Works", href: "#projects" },
+  { label: "Career", href: "#experience" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function NavBar() {
@@ -24,22 +24,27 @@ export default function NavBar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[var(--background)]/90 backdrop-blur-md shadow-sm"
+          ? "bg-[var(--navy)] border-b border-[var(--cobalt)]/30"
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
-        <a href="#hero" className="font-[family-name:var(--font-serif)] text-lg font-bold tracking-widest text-[var(--accent)]">
-          南京雨
+      <nav className="mx-auto max-w-[1280px] px-[clamp(1.5rem,5vw,5rem)] py-5 flex items-center justify-between">
+        <a
+          href="#hero"
+          className="font-display text-2xl tracking-widest uppercase text-[var(--cream)]"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          NAM KYEONG WOO
         </a>
 
         {/* Desktop */}
-        <ul className="hidden md:flex gap-8">
+        <ul className="hidden md:flex gap-10">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-sm font-medium text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+                className="text-xs tracking-[0.12em] uppercase font-medium text-[var(--cream)]/60 hover:text-[var(--cream)] transition-colors duration-150"
+                style={{ fontFamily: "var(--font-sans)" }}
               >
                 {item.label}
               </a>
@@ -53,21 +58,22 @@ export default function NavBar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="메뉴 열기"
         >
-          <span className={`block w-6 h-0.5 bg-[var(--foreground)] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-[var(--foreground)] transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-[var(--foreground)] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[var(--cream)] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[var(--cream)] transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[var(--cream)] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
         </button>
       </nav>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[var(--background)] border-t border-[var(--foreground)]/10 px-6 py-4">
-          <ul className="flex flex-col gap-4">
+        <div className="md:hidden bg-[var(--navy)] border-t border-[var(--cobalt)]/30 px-6 py-6">
+          <ul className="flex flex-col gap-5">
             {navItems.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="block text-base font-medium text-[var(--muted)] hover:text-[var(--foreground)]"
+                  className="block text-xs tracking-[0.15em] uppercase font-medium text-[var(--cream)]/60 hover:text-[var(--cream)]"
+                  style={{ fontFamily: "var(--font-sans)" }}
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}

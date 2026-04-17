@@ -1,40 +1,55 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf9f7;
-  --foreground: #1a1a1a;
-  --accent: #8b1a1a;
-  --accent-light: #c4472a;
-  --muted: #6b6b6b;
+  --cream: #EDE8DF;
+  --charcoal: #1A1A1A;
+  --navy: #1A2744;
+  --cobalt: #2B3FBF;
+  --red: #E8291C;
+  --sage: #8A9E8E;
+  --muted: #6B6B6B;
+
+  --background: var(--cream);
+  --foreground: var(--charcoal);
+  --accent: var(--cobalt);
+  --accent2: var(--red);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
-  --color-accent-light: var(--accent-light);
+  --color-navy: var(--navy);
+  --color-cobalt: var(--cobalt);
+  --color-red: var(--red);
+  --color-sage: var(--sage);
   --color-muted: var(--muted);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f0e0c;
-    --foreground: #f0ece4;
-    --accent: #c4472a;
-    --accent-light: #e07050;
-    --muted: #9a9a9a;
-  }
+  --font-display: var(--font-display);
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
 }
 
 @keyframes fadeInUp {
@@ -49,7 +64,7 @@ html {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0, 0, 1) forwards;
 }
 
 .section-hidden {
@@ -58,5 +73,10 @@ html {
 }
 
 .section-visible {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0, 0, 1) forwards;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: -0.02em;
 }

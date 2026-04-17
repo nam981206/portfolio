@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
-import { Noto_Serif_KR, Noto_Sans_KR } from "next/font/google";
+import { Bebas_Neue, Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 
-const notoSerifKR = Noto_Serif_KR({
+const bebasNeue = Bebas_Neue({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const playfairDisplay = Playfair_Display({
   variable: "--font-serif",
   subsets: ["latin"],
   weight: ["400", "700"],
 });
 
-const notoSansKR = Noto_Sans_KR({
+const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -27,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${notoSerifKR.variable} ${notoSansKR.variable} scroll-smooth`}
+      className={`${bebasNeue.variable} ${playfairDisplay.variable} ${inter.variable} scroll-smooth`}
     >
       <body className="min-h-full antialiased">{children}</body>
     </html>

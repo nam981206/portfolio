@@ -40,42 +40,67 @@ export default function ExperienceSection() {
     <section
       id="experience"
       ref={ref}
-      className="section-hidden py-24 md:py-36 px-6 bg-[var(--foreground)]/3"
+      className="section-hidden py-[clamp(5rem,12vw,10rem)] px-[clamp(1.5rem,5vw,5rem)] bg-[var(--navy)]"
     >
-      <div className="mx-auto max-w-5xl">
-        <p className="text-xs tracking-[0.3em] text-[var(--accent)] mb-4 uppercase">Experience</p>
-        <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-5xl font-bold mb-16 text-[var(--foreground)]">
-          경력
-        </h2>
+      <div className="mx-auto max-w-[1280px]">
+        {/* Right-aligned header */}
+        <div className="text-right mb-16">
+          <p
+            className="text-xs tracking-[0.2em] text-[var(--red)] mb-4 uppercase"
+            style={{ fontFamily: "var(--font-sans)" }}
+          >
+            05 — Experience
+          </p>
+          <h2
+            className="font-display text-[clamp(2.5rem,5vw,4rem)] uppercase leading-none text-[var(--cream)]"
+            style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
+          >
+            경력
+          </h2>
+        </div>
 
-        <div className="relative">
-          {/* 타임라인 선 */}
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-[var(--foreground)]/10 ml-3 hidden md:block" />
-
-          <div className="space-y-8">
-            {experiences.map((exp, i) => (
-              <div key={i} className="md:pl-12 relative">
-                {/* 타임라인 점 */}
-                <div className="absolute left-0 top-2 w-7 h-7 rounded-full border-2 border-[var(--accent)] bg-[var(--background)] hidden md:flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-[var(--accent)]" />
-                </div>
-
-                <div className="p-6 md:p-8 rounded-2xl border border-[var(--foreground)]/8 bg-[var(--background)] hover:border-[var(--accent)]/30 transition-colors">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                    <div>
-                      <span className="text-xs tracking-widest text-[var(--accent)] uppercase">{exp.type}</span>
-                      <h3 className="font-[family-name:var(--font-serif)] text-xl font-bold text-[var(--foreground)] mt-1">
-                        {exp.title}
-                      </h3>
-                      <p className="text-sm font-medium text-[var(--muted)]">{exp.organization}</p>
-                    </div>
-                    <span className="text-sm text-[var(--muted)] sm:text-right shrink-0">{exp.period}</span>
-                  </div>
-                  <p className="text-sm text-[var(--muted)] leading-relaxed">{exp.description}</p>
-                </div>
+        <div className="space-y-px bg-[var(--cobalt)]/20">
+          {experiences.map((exp, i) => (
+            <div
+              key={i}
+              className="grid md:grid-cols-[160px_1fr] gap-8 p-8 bg-[var(--navy)] border-l-2 border-[var(--cobalt)] hover:border-[var(--red)] transition-colors duration-200"
+            >
+              <div>
+                <span
+                  className="text-xs tracking-[0.12em] text-[var(--cream)]/40 uppercase"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  {exp.period}
+                </span>
               </div>
-            ))}
-          </div>
+              <div>
+                <span
+                  className="text-xs tracking-[0.15em] text-[var(--cobalt)] uppercase mb-2 block"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  {exp.type}
+                </span>
+                <h3
+                  className="text-xl font-bold text-[var(--cream)] mb-1"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
+                  {exp.title}
+                </h3>
+                <p
+                  className="text-sm text-[var(--cream)]/40 mb-4"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  {exp.organization}
+                </p>
+                <p
+                  className="text-sm text-[var(--cream)]/60 leading-relaxed"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  {exp.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
