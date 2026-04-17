@@ -22,7 +22,7 @@ export default function HeroSection() {
         </span>
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-[1280px] px-[clamp(1.5rem,5vw,5rem)] pb-[clamp(5rem,12vw,10rem)] pt-40 animate-fade-in-up">
+      <div className="relative z-10 mx-auto w-full max-w-[1280px] px-[clamp(1.5rem,5vw,5rem)] pb-[clamp(3rem,8vw,6rem)] pt-32 animate-fade-in-up">
         {/* Label */}
         <p
           className="text-xs tracking-[0.2em] text-[var(--red)] mb-6 uppercase"

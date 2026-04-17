@@ -50,7 +50,7 @@ export default function ProjectsSection() {
     <section
       id="projects"
       ref={ref}
-      className="section-hidden py-[clamp(5rem,12vw,10rem)] px-[clamp(1.5rem,5vw,5rem)]"
+      className="section-hidden pt-28 pb-[clamp(3rem,8vw,6rem)] px-[clamp(1.5rem,5vw,5rem)] min-h-screen flex flex-col justify-center"
     >
       <div className="mx-auto max-w-[1280px]">
         <p

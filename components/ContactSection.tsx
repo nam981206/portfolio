@@ -23,7 +23,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={ref}
-      className="section-hidden py-[clamp(5rem,12vw,10rem)] px-[clamp(1.5rem,5vw,5rem)] relative overflow-hidden"
+      className="section-hidden pt-28 pb-[clamp(3rem,8vw,6rem)] px-[clamp(1.5rem,5vw,5rem)] relative overflow-hidden min-h-screen flex flex-col justify-center"
     >
       {/* Decorative block */}
       <div className="absolute top-0 right-0 w-48 h-2 bg-[var(--red)]" />

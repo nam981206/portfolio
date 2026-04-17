@@ -46,7 +46,7 @@ export default function SkillsSection() {
     <section
       id="skills"
       ref={ref}
-      className="section-hidden py-[clamp(5rem,12vw,10rem)] px-[clamp(1.5rem,5vw,5rem)] bg-[var(--navy)]"
+      className="section-hidden pt-28 pb-[clamp(3rem,8vw,6rem)] px-[clamp(1.5rem,5vw,5rem)] bg-[var(--navy)] min-h-screen flex flex-col justify-center"
     >
       <div className="mx-auto max-w-[1280px]">
         {/* Header — right aligned */}
