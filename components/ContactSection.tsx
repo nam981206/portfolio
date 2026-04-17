@@ -1,41 +1,16 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
 export default function ContactSection() {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.remove("section-hidden");
-          entry.target.classList.add("section-visible");
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
       id="contact"
-      ref={ref}
-      className="section-hidden pt-28 pb-[clamp(3rem,8vw,6rem)] px-[clamp(1.5rem,5vw,5rem)] relative overflow-hidden min-h-screen flex flex-col justify-center"
+      className="animate-fade-in-up pt-28 pb-[clamp(3rem,8vw,6rem)] px-[clamp(1.5rem,5vw,5rem)] relative overflow-hidden min-h-screen flex flex-col justify-center"
     >
-      {/* Decorative block */}
       <div className="absolute top-0 right-0 w-48 h-2 bg-[var(--red)]" />
       <div className="absolute bottom-0 left-0 w-2 h-48 bg-[var(--cobalt)]" />
 
-      <div className="mx-auto max-w-[1280px]">
+      <div className="mx-auto max-w-[1280px] w-full">
         <div className="grid md:grid-cols-2 gap-16 items-end">
           <div>
-            <p
-              className="text-xs tracking-[0.2em] text-[var(--cobalt)] mb-4 uppercase"
-              style={{ fontFamily: "var(--font-sans)" }}
-            >
+            <p className="text-xs tracking-[0.2em] text-[var(--cobalt)] mb-4 uppercase" style={{ fontFamily: "var(--font-sans)" }}>
               06 — Contact
             </p>
             <h2
@@ -44,10 +19,7 @@ export default function ContactSection() {
             >
               연락처
             </h2>
-            <p
-              className="text-[var(--muted)] leading-relaxed mb-0"
-              style={{ fontFamily: "var(--font-sans)" }}
-            >
+            <p className="text-[var(--muted)] leading-relaxed" style={{ fontFamily: "var(--font-sans)" }}>
               공연 협업, 창작 의뢰, 기타 문의 사항은 아래로 연락 주세요.
             </p>
           </div>
@@ -58,16 +30,10 @@ export default function ContactSection() {
               className="flex items-center justify-between p-8 bg-[var(--cream)] border-l-2 border-[var(--cobalt)] hover:border-[var(--red)] hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--cobalt)] transition-all duration-150 group"
             >
               <div>
-                <p
-                  className="text-xs tracking-[0.15em] text-[var(--muted)] uppercase mb-2"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
+                <p className="text-xs tracking-[0.15em] text-[var(--muted)] uppercase mb-2" style={{ fontFamily: "var(--font-sans)" }}>
                   이메일
                 </p>
-                <p
-                  className="font-medium text-[var(--charcoal)] group-hover:text-[var(--cobalt)] transition-colors"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
+                <p className="font-medium text-[var(--charcoal)] group-hover:text-[var(--cobalt)] transition-colors" style={{ fontFamily: "var(--font-serif)" }}>
                   gcnamkw@gmail.com
                 </p>
               </div>
@@ -78,16 +44,10 @@ export default function ContactSection() {
 
             <div className="flex items-center justify-between p-8 bg-[var(--cream)] border-l-2 border-transparent">
               <div>
-                <p
-                  className="text-xs tracking-[0.15em] text-[var(--muted)] uppercase mb-2"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
+                <p className="text-xs tracking-[0.15em] text-[var(--muted)] uppercase mb-2" style={{ fontFamily: "var(--font-sans)" }}>
                   소속
                 </p>
-                <p
-                  className="font-medium text-[var(--charcoal)]"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
+                <p className="font-medium text-[var(--charcoal)]" style={{ fontFamily: "var(--font-serif)" }}>
                   한반도아트
                 </p>
               </div>

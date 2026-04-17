@@ -1,33 +1,11 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
 export default function AboutSection() {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.remove("section-hidden");
-          entry.target.classList.add("section-visible");
-        }
-      },
-      { threshold: 0.15 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
       id="about"
-      ref={ref}
-      className="section-hidden pt-28 pb-[clamp(3rem,8vw,6rem)] px-[clamp(1.5rem,5vw,5rem)] min-h-screen flex flex-col justify-center"
+      className="animate-fade-in-up pt-28 pb-[clamp(3rem,8vw,6rem)] px-[clamp(1.5rem,5vw,5rem)] min-h-screen flex flex-col justify-center"
     >
-      <div className="mx-auto max-w-[1280px]">
+      <div className="mx-auto max-w-[1280px] w-full">
         <div className="grid md:grid-cols-2 gap-16 items-start">
-          {/* Left */}
           <div>
             <p
               className="text-xs tracking-[0.2em] text-[var(--cobalt)] mb-4 uppercase"
@@ -59,7 +37,6 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Right — info cards */}
           <div className="grid grid-cols-2 gap-px bg-[var(--charcoal)]/10">
             {[
               { label: "소속", value: "한반도아트" },

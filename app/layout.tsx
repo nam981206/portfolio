@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Playfair_Display, Inter } from "next/font/google";
+import SiteShell from "@/components/SiteShell";
 import "./globals.css";
 
 const bebasNeue = Bebas_Neue({
@@ -35,7 +36,9 @@ export default function RootLayout({
       lang="ko"
       className={`${bebasNeue.variable} ${playfairDisplay.variable} ${inter.variable} scroll-smooth`}
     >
-      <body className="min-h-full antialiased">{children}</body>
+      <body className="min-h-full antialiased">
+        <SiteShell>{children}</SiteShell>
+      </body>
     </html>
   );
 }

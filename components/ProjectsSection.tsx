@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
 const projects = [
   {
     num: "01",
@@ -30,33 +26,13 @@ const projects = [
 ];
 
 export default function ProjectsSection() {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.remove("section-hidden");
-          entry.target.classList.add("section-visible");
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
       id="projects"
-      ref={ref}
-      className="section-hidden pt-28 pb-[clamp(3rem,8vw,6rem)] px-[clamp(1.5rem,5vw,5rem)] min-h-screen flex flex-col justify-center"
+      className="animate-fade-in-up pt-28 pb-[clamp(3rem,8vw,6rem)] px-[clamp(1.5rem,5vw,5rem)] min-h-screen flex flex-col justify-center"
     >
-      <div className="mx-auto max-w-[1280px]">
-        <p
-          className="text-xs tracking-[0.2em] text-[var(--cobalt)] mb-4 uppercase"
-          style={{ fontFamily: "var(--font-sans)" }}
-        >
+      <div className="mx-auto max-w-[1280px] w-full">
+        <p className="text-xs tracking-[0.2em] text-[var(--cobalt)] mb-4 uppercase" style={{ fontFamily: "var(--font-sans)" }}>
           04 — Projects
         </p>
         <h2
@@ -73,27 +49,17 @@ export default function ProjectsSection() {
               className="group grid md:grid-cols-[80px_1fr_auto] gap-8 p-8 bg-[var(--cream)] hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--cobalt)] transition-all duration-150 cursor-default"
             >
               <div>
-                <span
-                  className="text-xs tracking-[0.15em] text-[var(--cobalt)]"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
+                <span className="text-xs tracking-[0.15em] text-[var(--cobalt)]" style={{ fontFamily: "var(--font-sans)" }}>
                   {project.num}
                 </span>
               </div>
-
               <div>
                 <div className="flex items-center gap-4 mb-3">
-                  <span
-                    className="text-xs tracking-[0.15em] text-[var(--red)] uppercase"
-                    style={{ fontFamily: "var(--font-sans)" }}
-                  >
+                  <span className="text-xs tracking-[0.15em] text-[var(--red)] uppercase" style={{ fontFamily: "var(--font-sans)" }}>
                     {project.category}
                   </span>
                   <span className="w-4 h-px bg-[var(--charcoal)]/20" />
-                  <span
-                    className="text-xs text-[var(--muted)]"
-                    style={{ fontFamily: "var(--font-sans)" }}
-                  >
+                  <span className="text-xs text-[var(--muted)]" style={{ fontFamily: "var(--font-sans)" }}>
                     {project.year}
                   </span>
                 </div>
@@ -103,14 +69,10 @@ export default function ProjectsSection() {
                 >
                   {project.title}
                 </h3>
-                <p
-                  className="text-sm text-[var(--muted)] leading-relaxed"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
+                <p className="text-sm text-[var(--muted)] leading-relaxed" style={{ fontFamily: "var(--font-sans)" }}>
                   {project.description}
                 </p>
               </div>
-
               <div className="flex flex-wrap gap-2 md:justify-end content-start">
                 {project.tags.map((tag) => (
                   <span

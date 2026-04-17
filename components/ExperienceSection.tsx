@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
 const experiences = [
   {
     period: "2023 – 현재",
@@ -20,35 +16,14 @@ const experiences = [
 ];
 
 export default function ExperienceSection() {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.remove("section-hidden");
-          entry.target.classList.add("section-visible");
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
       id="experience"
-      ref={ref}
-      className="section-hidden pt-28 pb-[clamp(3rem,8vw,6rem)] px-[clamp(1.5rem,5vw,5rem)] bg-[var(--navy)] min-h-screen flex flex-col justify-center"
+      className="animate-fade-in-up pt-28 pb-[clamp(3rem,8vw,6rem)] px-[clamp(1.5rem,5vw,5rem)] bg-[var(--navy)] min-h-screen flex flex-col justify-center"
     >
-      <div className="mx-auto max-w-[1280px]">
-        {/* Right-aligned header */}
+      <div className="mx-auto max-w-[1280px] w-full">
         <div className="text-right mb-16">
-          <p
-            className="text-xs tracking-[0.2em] text-[var(--red)] mb-4 uppercase"
-            style={{ fontFamily: "var(--font-sans)" }}
-          >
+          <p className="text-xs tracking-[0.2em] text-[var(--red)] mb-4 uppercase" style={{ fontFamily: "var(--font-sans)" }}>
             05 — Experience
           </p>
           <h2
@@ -66,36 +41,21 @@ export default function ExperienceSection() {
               className="grid md:grid-cols-[160px_1fr] gap-8 p-8 bg-[var(--navy)] border-l-2 border-[var(--cobalt)] hover:border-[var(--red)] transition-colors duration-200"
             >
               <div>
-                <span
-                  className="text-xs tracking-[0.12em] text-[var(--cream)]/40 uppercase"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
+                <span className="text-xs tracking-[0.12em] text-[var(--cream)]/40 uppercase" style={{ fontFamily: "var(--font-sans)" }}>
                   {exp.period}
                 </span>
               </div>
               <div>
-                <span
-                  className="text-xs tracking-[0.15em] text-[var(--cobalt)] uppercase mb-2 block"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
+                <span className="text-xs tracking-[0.15em] text-[var(--cobalt)] uppercase mb-2 block" style={{ fontFamily: "var(--font-sans)" }}>
                   {exp.type}
                 </span>
-                <h3
-                  className="text-xl font-bold text-[var(--cream)] mb-1"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
+                <h3 className="text-xl font-bold text-[var(--cream)] mb-1" style={{ fontFamily: "var(--font-serif)" }}>
                   {exp.title}
                 </h3>
-                <p
-                  className="text-sm text-[var(--cream)]/40 mb-4"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
+                <p className="text-sm text-[var(--cream)]/40 mb-4" style={{ fontFamily: "var(--font-sans)" }}>
                   {exp.organization}
                 </p>
-                <p
-                  className="text-sm text-[var(--cream)]/60 leading-relaxed"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
+                <p className="text-sm text-[var(--cream)]/60 leading-relaxed" style={{ fontFamily: "var(--font-sans)" }}>
                   {exp.description}
                 </p>
               </div>
