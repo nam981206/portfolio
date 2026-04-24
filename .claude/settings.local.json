@@ -21,7 +21,8 @@
       "WebFetch(domain:gcnamkw.com)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(curl -L \"https://s1.wp.com/i/favicon.ico\" -o \"C:/Users/Namkyeongwoo/Desktop/0417/app/favicon.ico\")"
     ]
   },
   "enabledPlugins": {
