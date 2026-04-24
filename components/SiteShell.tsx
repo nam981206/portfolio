@@ -65,49 +65,6 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
         {children}
       </div>
 
-      {/* Prev button */}
-      {prev && (
-        <Link
-          href={prev.path}
-          className="fixed bottom-24 right-[clamp(1.5rem,5vw,5rem)] z-50 flex flex-col items-center gap-2 group"
-          aria-label="이전 페이지"
-        >
-          <svg
-            className="w-5 h-5 text-[var(--cream)]/30 group-hover:text-[var(--cream)] transition-colors rotate-180"
-            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-          </svg>
-          <span
-            className="text-[10px] tracking-widest uppercase text-[var(--cream)]/30 group-hover:text-[var(--cream)]/70 transition-colors"
-            style={{ fontFamily: "var(--font-sans)", writingMode: "vertical-rl" }}
-          >
-            {prev.label}
-          </span>
-        </Link>
-      )}
-
-      {/* Next button */}
-      {next && (
-        <Link
-          href={next.path}
-          className="fixed bottom-10 right-[clamp(1.5rem,5vw,5rem)] z-50 flex flex-col items-center gap-2 group"
-          aria-label="다음 페이지"
-        >
-          <span
-            className="text-[10px] tracking-widest uppercase text-[var(--cream)]/40 group-hover:text-[var(--cream)]/80 transition-colors"
-            style={{ fontFamily: "var(--font-sans)", writingMode: "vertical-rl" }}
-          >
-            {next.label}
-          </span>
-          <svg
-            className="w-5 h-5 text-[var(--cream)]/40 group-hover:text-[var(--cream)] transition-colors"
-            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-          </svg>
-        </Link>
-      )}
 
       {/* Dot indicators */}
       <div className="fixed left-[clamp(1.5rem,3vw,3rem)] top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
