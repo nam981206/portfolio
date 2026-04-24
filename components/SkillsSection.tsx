@@ -1,8 +1,24 @@
 const areas = [
-  { num: "01", category: "창작", items: ["국악 작곡", "편곡", "사운드 디자인", "음악 기획"] },
-  { num: "02", category: "공연", items: ["공연 연출", "무대 기획", "앙상블 지휘", "퍼포먼스"] },
-  { num: "03", category: "전통 악기", items: ["가야금", "거문고", "해금", "대금"] },
-  { num: "04", category: "경영 · 기획", items: ["예술 단체 운영", "프로젝트 매니지먼트", "문화 콘텐츠 기획", "협업 조율"] },
+  {
+    num: "01",
+    category: "소리",
+    items: ["경기민요", "서도소리", "잡가", "민요 창작"],
+  },
+  {
+    num: "02",
+    category: "타악 · 악기",
+    items: ["소고", "장구", "북", "타악 퍼포먼스"],
+  },
+  {
+    num: "03",
+    category: "작곡 · 편곡",
+    items: ["크로스오버 민요", "전통음악 현대화", "사운드 디자인", "작창"],
+  },
+  {
+    num: "04",
+    category: "기획 · 연출",
+    items: ["공연 기획", "연출", "아카이빙", "프로젝트 매니지먼트"],
+  },
 ];
 
 export default function SkillsSection() {
@@ -20,8 +36,8 @@ export default function SkillsSection() {
             03 — Skills & Areas
           </p>
           <h2
-            className="font-display text-[clamp(2.5rem,5vw,4rem)] uppercase leading-none text-[var(--cream)]"
-            style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
+            className="uppercase leading-none text-[var(--cream)]"
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.5rem,5vw,4rem)", letterSpacing: "-0.02em" }}
           >
             활동 분야
           </h2>
@@ -36,7 +52,7 @@ export default function SkillsSection() {
               <p className="text-xs tracking-[0.15em] text-[var(--cobalt)] mb-4" style={{ fontFamily: "var(--font-sans)" }}>
                 {area.num}
               </p>
-              <h3 className="font-display text-2xl uppercase text-[var(--cream)] mb-6" style={{ fontFamily: "var(--font-display)" }}>
+              <h3 className="uppercase text-[var(--cream)] mb-6 text-2xl" style={{ fontFamily: "var(--font-display)" }}>
                 {area.category}
               </h3>
               <ul className="space-y-2">
@@ -47,6 +63,24 @@ export default function SkillsSection() {
                   </li>
                 ))}
               </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* 소속 */}
+        <div className="mt-px grid grid-cols-3 gap-px bg-[var(--cobalt)]/20">
+          {[
+            { label: "단체", value: "한반도아트" },
+            { label: "동인", value: "남자경기소리 고만고만" },
+            { label: "프로젝트", value: "이희문컴퍼니 놈놈" },
+          ].map((item) => (
+            <div key={item.label} className="p-6 bg-[var(--navy)]">
+              <p className="text-xs tracking-[0.15em] text-[var(--cobalt)] mb-2 uppercase" style={{ fontFamily: "var(--font-sans)" }}>
+                {item.label}
+              </p>
+              <p className="text-sm text-[var(--cream)]/70" style={{ fontFamily: "var(--font-serif)" }}>
+                {item.value}
+              </p>
             </div>
           ))}
         </div>
